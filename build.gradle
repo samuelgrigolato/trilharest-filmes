@@ -14,7 +14,7 @@ apply plugin: 'idea'
 repositories {
     // Use 'jcenter' for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    maven { url "http://192.168.1.7:8071/repository/maven-public/"  }
+    //maven { url "http://192.168.1.7:8071/repository/maven-public/"  }
     jcenter()
 }
 
