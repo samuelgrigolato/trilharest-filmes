@@ -1,1 +1,8 @@
 language: java
+deploy:
+  api-key:
+    secure: D1QzHIegCPjPg+IK/Et7aNcy7JI1b2ugPkDUynwFme7E+ngCq5aHC6XADQ77+p/4M7Bwj8U3qFRDDcRMIi1xDpZyGcKQrFrqeSPLc2FQocK/pNzUWEAvhW1wl+U8yqOLz0QCjYKpv0H1lOqhdjeRp+I5jvjpFbniitOU06O/g2Vg9SJLxEbguh4ilRLxXXNG122cVWaoikDHx5ISz211r5RetwGabl2l/Y9BtkzeFTg5LeeNL0/5/CEBXun0hWOmz6qQvDbBWm7/5kbySIC4zWwyt4tRyAsKnwsL3EyHR0hZjdsA1IDWXgs/b81iBrYw1v6oSN92G9iqHgTi3s0RfA1GQuaZ47wSOPvOp1Ul0gTcTxoImRV1Q4NdYP929UGw7u0Vo+CPGnLOGEEWe8q8Im3naIZHgUBAUwOY+4IasrGHy8CvwKwvzvXd8BOb4omMmvCEfbv9FHU2MaRlkEKLA4bepvsD1uRukY+8dUhFx++REmwuq3BIvNiIY29Lp7uGBW7fZ339+e7hx1Y5DUFEI+FLM8P6TSgOu0G3q40ze8jWREt0hhfBybDSyhE7RKfDKIJj1f7nEOZRqHN67g+wZKOqGNzr1vt9sd9IH7KtYkGyMZ6ZbJEvApuwfr8kzfcGI+FILLp8v6KaO8GFPUEYdJbmXql1PqrfN7+aF9pazyo=
+  provider: heroku
+  app:
+    staging: sg-filmes-stg
+    master: sg-filmes-prd
