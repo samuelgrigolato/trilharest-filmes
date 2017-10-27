@@ -4,9 +4,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Filme {
 
+  @Id
   private UUID id;
   private String nome;
   private String sinopse;
@@ -16,6 +20,9 @@ public class Filme {
 
   private LocalDate inicioExibicao;
   private LocalDate fimExibicao;
+
+  public Filme() {
+  }
 
   public Filme(UUID id, String nome, String sinopse, Duration duracao,
       LocalDate inicioExibicao, LocalDate fimExibicao) {

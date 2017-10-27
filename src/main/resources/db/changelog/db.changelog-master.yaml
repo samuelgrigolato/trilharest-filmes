@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: samuelgrigolato
+      changes:
+      - sqlFile:
+          dbms: postgresql
+          encoding: utf8
+          path: sqls/0001-migracao-inicial.sql
+          relativeToChangelogFile: true

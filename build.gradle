@@ -28,8 +28,12 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.25'
 
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.7.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.5.7.RELEASE'
     compile "io.springfox:springfox-swagger2:2.7.0"
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
+    compile group: 'org.hibernate', name: 'hibernate-java8', version: '5.0.12.Final'
+    compile group: 'org.liquibase', name: 'liquibase-core', version: '3.5.3'
 
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
