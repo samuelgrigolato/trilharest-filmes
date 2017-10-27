@@ -1,5 +1,6 @@
 package com.opensanca.trilharest.filmes.filmes;
 
+import io.swagger.annotations.ApiModelProperty;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -9,7 +10,10 @@ public class Filme {
   private UUID id;
   private String nome;
   private String sinopse;
+
+  @ApiModelProperty(value="Duração do filme sem trailers")
   private Duration duracao;
+
   private LocalDate inicioExibicao;
   private LocalDate fimExibicao;
 
