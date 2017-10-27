@@ -28,7 +28,7 @@ public class FilmesAPI {
                 notes="Permite a busca paginada de filmes em exibição, " +
                       "ou seja, filmes que possuam data de início e término " +
                       "de exibição e cujo período engloba a data atual")
-  public Page<Filme> get(Pageable parametrosDePaginacao) {
+  public Page<FilmeResumidoDTO> get(Pageable parametrosDePaginacao) {
     if (parametrosDePaginacao == null) {
       parametrosDePaginacao = new PageRequest(1, 3);
     }
@@ -37,12 +37,12 @@ public class FilmesAPI {
   }
 
   @GetMapping("/{id}")
-  public Filme getPorId(@PathVariable UUID id) {
+  public FilmeDetalhadoDTO getPorId(@PathVariable UUID id) {
     Filme filme = filmesRepository.findOne(id);
     if (filme == null) {
       throw new EntidadeNaoEncontradaException();
     }
-    return filme;
+    return new FilmeDetalhadoDTO(filme);
   }
 
 }
