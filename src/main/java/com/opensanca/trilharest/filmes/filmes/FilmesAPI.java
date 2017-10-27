@@ -1,12 +1,14 @@
 package com.opensanca.trilharest.filmes.filmes;
 
 
-import com.opensanca.trilharest.filmes.comum.Pagina;
-import com.opensanca.trilharest.filmes.comum.ParametrosDePaginacao;
+import com.opensanca.trilharest.filmes.comum.EntidadeNaoEncontradaException;
 import io.swagger.annotations.ApiOperation;
 import java.time.LocalDate;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,17 +28,21 @@ public class FilmesAPI {
                 notes="Permite a busca paginada de filmes em exibição, " +
                       "ou seja, filmes que possuam data de início e término " +
                       "de exibição e cujo período engloba a data atual")
-  public Pagina<Filme> get(ParametrosDePaginacao parametrosDePaginacao) {
+  public Page<Filme> get(Pageable parametrosDePaginacao) {
     if (parametrosDePaginacao == null) {
-      parametrosDePaginacao = new ParametrosDePaginacao();
+      parametrosDePaginacao = new PageRequest(1, 3);
     }
     LocalDate hoje = LocalDate.now();
-    return filmesRepository.buscarPaginaEmExibicao(parametrosDePaginacao, hoje);
+    return filmesRepository.buscarPaginaEmExibicao(hoje, parametrosDePaginacao);
   }
 
   @GetMapping("/{id}")
   public Filme getPorId(@PathVariable UUID id) {
-    return filmesRepository.buscarPorId(id);
+    Filme filme = filmesRepository.findOne(id);
+    if (filme == null) {
+      throw new EntidadeNaoEncontradaException();
+    }
+    return filme;
   }
 
 }

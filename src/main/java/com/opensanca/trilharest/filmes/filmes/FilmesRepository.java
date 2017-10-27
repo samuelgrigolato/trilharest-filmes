@@ -1,18 +1,15 @@
 package com.opensanca.trilharest.filmes.filmes;
 
-import com.opensanca.trilharest.filmes.comum.EntidadeNaoEncontradaException;
-import com.opensanca.trilharest.filmes.comum.Pagina;
-import com.opensanca.trilharest.filmes.comum.ParametrosDePaginacao;
 import java.time.LocalDate;
 import java.util.UUID;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 
-public interface FilmesRepository {
+public interface FilmesRepository extends CrudRepository<Filme, UUID> {
 
-  Pagina<Filme> buscarPaginaEmExibicao(ParametrosDePaginacao parametrosDePaginacao, LocalDate referencia);
-
-  /**
-   * @throws EntidadeNaoEncontradaException
-   */
-  Filme buscarPorId(UUID id);
+  @Query("select f from Filme f where ?1 between f.inicioExibicao and f.fimExibicao")
+  Page<Filme> buscarPaginaEmExibicao(LocalDate referencia, Pageable pageable);
 
 }
