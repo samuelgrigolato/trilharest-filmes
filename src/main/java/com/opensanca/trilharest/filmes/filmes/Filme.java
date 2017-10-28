@@ -12,13 +12,16 @@ public class Filme {
 
   @Id
   private UUID id;
+
   private String nome;
+
   private String sinopse;
 
   @ApiModelProperty(value="Duração do filme sem trailers")
   private Duration duracao;
 
   private LocalDate inicioExibicao;
+
   private LocalDate fimExibicao;
 
   public Filme() {

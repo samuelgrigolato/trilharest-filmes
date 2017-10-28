@@ -34,6 +34,7 @@ dependencies {
     compile group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
     compile group: 'org.hibernate', name: 'hibernate-java8', version: '5.0.12.Final'
     compile group: 'org.liquibase', name: 'liquibase-core', version: '3.5.3'
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.1'
 
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
