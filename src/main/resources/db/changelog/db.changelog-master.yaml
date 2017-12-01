@@ -8,3 +8,30 @@ databaseChangeLog:
           encoding: utf8
           path: sqls/0001-migracao-inicial.sql
           relativeToChangelogFile: true
+  - changeSet:
+      id: 2
+      author: samuelgrigolato
+      changes:
+      - sqlFile:
+          dbms: postgresql
+          encoding: utf8
+          path: sqls/0002-adicao-da-tabela-de-usuarios.sql
+          relativeToChangelogFile: true
+  - changeSet:
+      id: 3
+      author: samuelgrigolato
+      changes:
+      - sqlFile:
+          dbms: postgresql
+          encoding: utf8
+          path: sqls/0003-aumenta-tamanho-coluna-senha.sql
+          relativeToChangelogFile: true
+  - changeSet:
+      id: 4
+      author: samuelgrigolato
+      changes:
+      - sqlFile:
+          dbms: postgresql
+          encoding: utf8
+          path: sqls/0004-cria-tabela-tokens-autenticacao.sql
+          relativeToChangelogFile: true
