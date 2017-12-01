@@ -63,7 +63,7 @@ public class SegurancaConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/**").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.PUT, "/**").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/**").hasAuthority("ADMIN")
-                .antMatchers(HttpMethod.GET, "/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/**/*").permitAll()
                 .anyRequest().denyAll();
 
     }
