@@ -59,6 +59,14 @@ public class FilmesAPI {
 
   @GetMapping
   public Page<FilmeResumidoDTO> getTodos(Pageable parametrosDePaginacao) {
+
+    if (System.currentTimeMillis() % 50 == 0) {
+      try {
+        Thread.sleep(3000);
+      } catch (InterruptedException e) {
+      }
+    }
+
     if (parametrosDePaginacao == null) {
       parametrosDePaginacao = new PageRequest(1, 3);
     }
