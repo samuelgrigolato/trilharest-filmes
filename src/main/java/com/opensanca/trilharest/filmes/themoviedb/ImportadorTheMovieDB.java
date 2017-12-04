@@ -28,7 +28,7 @@ public class ImportadorTheMovieDB {
     @Autowired
     private FilmesRepository filmesRepository;
 
-    @Scheduled(fixedDelay = 15 * 1000)
+    @Scheduled(fixedDelay = 60 * 1000)
     public void executar() {
         LOGGER.info("Executando importação de filmes do TheMovieDB...");
 
@@ -39,6 +39,7 @@ public class ImportadorTheMovieDB {
         FilmesTheMovieDB filmes = api.getForObject(url, FilmesTheMovieDB.class);
 
         List<Filme> entidades = filmes.getResults().stream()
+            .filter(x -> filmesRepository.findByNome(x.getTitle()) == null)
             .map(x -> {
                 Filme entidade = new Filme();
                 entidade.setId(UUID.randomUUID());
